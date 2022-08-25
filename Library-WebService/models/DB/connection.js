@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const crypto = require("crypto");
+const mongoosePaginate = require("mongoose-paginate-v2");
 const { Schema } = mongoose;
 
 const { COLLECTION_NAME, MongoDBURL } = require("../../keys/constant");
@@ -9,9 +9,6 @@ mongoose.Promise = global.Promise;
 
 const connection = {};
 
-mongoose.set("useCreateIndex", true);
-mongoose.set("useFindAndModify", false);
-
 const BooksSchema = mongoose.Schema(
   {
     author: String,
@@ -19,9 +16,9 @@ const BooksSchema = mongoose.Schema(
     imageLink: String,
     language: String,
     link: String,
-    pages: String,
+    pages: Number,
     title: String,
-    year: String,
+    year: Number,
     published: Boolean,
     publishedDate: Date,
 
@@ -47,13 +44,14 @@ connection.getCollection = (collectionName) => {
   const DB_HOST = MongoDBURL.URL;
   console.log(DB_HOST);
   return mongoose
-    .connect(`${DB_HOST}`, {
+    .connect(`${DB_HOST}/Library`, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     })
     .then((db) => {
       switch (collectionName) {
         case COLLECTION_NAME.BOOKS:
+          console.log("GETTING BOOKS");
           return db.model(collectionName, BooksSchema);
       }
     })
@@ -64,5 +62,7 @@ connection.getCollection = (collectionName) => {
       throw error;
     });
 };
+
+connection.BooksModel = mongoose.model("Books", BooksSchema);
 
 module.exports = connection;

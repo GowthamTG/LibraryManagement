@@ -10,7 +10,7 @@ const routes: Routes = [
     component: LandingComponent,
   },
   {
-    path: 'add-book',
+    path: 'add-books',
     component: AddBookComponent,
   },
   { path: '**', redirectTo: '', pathMatch: 'full' },
@@ -20,4 +20,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class AuthRoutingModule {}
+export class BooksRoutingModule {}

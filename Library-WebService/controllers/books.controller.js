@@ -12,38 +12,50 @@ const getPagination = (page, size) => {
 };
 
 booksModel.findAllWithConditions = (req, res) => {
-  const { page, size, title, author, subject, dateFrom, dateTo } = req.query;
+  console.log(req.body);
+  var condition = {};
+  const { page, size, title, author, subject, dateFrom, dateTo } = req.body;
+  console.log(author);
   var titleVal = title ? { $regex: new RegExp(title), $options: "i" } : {};
   var authorVal = author ? { $regex: new RegExp(author), $options: "i" } : {};
   var subjectVal = subject
     ? { $regex: new RegExp(subject), $options: "i" }
     : {};
-  var startDate = new Date("0000-01-01T00:00:00.000Z");
-  var endDate = new Date();
-  if (dateFrom) {
-    startDate = new Date(dateFrom);
+  var startDate = 0001;
+  var endDate = 2050;
+  if (dateFrom && dateFrom != "" && dateFrom != null) {
+    startDate = new Date(dateFrom).getFullYear();
   }
-  if (dateTo) {
-    endDate = new Date(dateTo);
+  if (dateTo && dateTo != "" && dateTo != null) {
+    endDate = new Date(dateTo).getFullYear();
   }
   var dateVal = {
-    publishedDate: {
-      $gte: startDate,
-      $lt: endDate,
-    },
+    $gte: startDate,
+    $lt: endDate,
   };
 
+  if (title != "" && title != null) {
+    condition.title = { $regex: new RegExp(title), $options: "i" };
+  }
+  if (author != "" && author != null) {
+    condition.author = { $regex: new RegExp(author), $options: "i" };
+  }
+  condition.year = dateVal;
+  console.log(condition);
+
   const { limit, offset } = getPagination(page, size);
-  return collection
-    .getCollection(COLLECTION_NAME.BOOKS)
-    .paginate({}, { offset, limit })
+  console.log(limit, offset);
+
+  const booksModel = collection.getCollection(COLLECTION_NAME.BOOKS);
+
+  return collection.BooksModel.paginate(condition, { offset, limit })
     .then((data) => {
-      res.send({
+      return {
         totalItems: data.totalDocs,
         books: data.docs,
         totalPages: data.totalPages,
         currentPage: data.page - 1,
-      });
+      };
     })
     .catch((err) => {
       res.status(500).send({

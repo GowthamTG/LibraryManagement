@@ -1,3 +1,58 @@
 .example-card {
   max-width: 200px;
 }
+.books-container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 85%;
+}
+.form-container {
+  margin-left: auto;
+  margin-right: auto;
+
+  max-width: 70%;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 2rem;
+}
+
+.heading {
+  background: 50% 100% / 50% 50% no-repeat
+    radial-gradient(ellipse at bottom, #000, transparent, transparent);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: 3rem;
+  font-family: "Source Sans Pro", sans-serif;
+  animation: reveal 3000ms ease-in-out forwards 200ms,
+    glow 2500ms linear infinite 2000ms;
+
+  padding: 2rem 1rem;
+
+  @keyframes reveal {
+    80% {
+      letter-spacing: 8px;
+    }
+    100% {
+      background-size: 300% 300%;
+    }
+  }
+  @keyframes glow {
+    40% {
+      text-shadow: 0 0 8px #000;
+    }
+  }
+}
+.example-card {
+  min-height: 25rem;
+  max-height: 25rem;
+}
+.image {
+  object-fit: fill;
+}
+mat-card-title {
+  margin-bottom: 0.5rem;
+}

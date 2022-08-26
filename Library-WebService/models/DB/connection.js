@@ -44,7 +44,7 @@ connection.getCollection = (collectionName) => {
   const DB_HOST = MongoDBURL.URL;
   console.log(DB_HOST);
   return mongoose
-    .connect(`${DB_HOST}/Library`, {
+    .connect(`${DB_HOST}`, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     })

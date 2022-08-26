@@ -14,8 +14,10 @@ const getPagination = (page, size) => {
 booksModel.findAllWithConditions = (req, res) => {
   console.log(req.body);
   var condition = {};
-  const { page, size, title, author, subject, dateFrom, dateTo } = req.body;
+  const { page, size, title, author, subject, dateFrom, dateTo, sortYear } =
+    req.body;
   console.log(author);
+  // "/The/"
   var titleVal = title ? { $regex: new RegExp(title), $options: "i" } : {};
   var authorVal = author ? { $regex: new RegExp(author), $options: "i" } : {};
   var subjectVal = subject
@@ -41,6 +43,7 @@ booksModel.findAllWithConditions = (req, res) => {
     condition.author = { $regex: new RegExp(author), $options: "i" };
   }
   condition.year = dateVal;
+
   console.log(condition);
 
   const { limit, offset } = getPagination(page, size);
@@ -63,6 +66,17 @@ booksModel.findAllWithConditions = (req, res) => {
           err.message || "Some error occurred while retrieving tutorials.",
       });
     });
+};
+
+booksModel.addBook = (bookDetails) => {
+  bookDetails.link = "";
+  console.log(bookDetails);
+  return collection
+    .getCollection(COLLECTION_NAME.BOOKS)
+    .then((model) => {
+      model.create(bookDetails);
+    })
+    .then((response) => response);
 };
 
 exports.findAllBooksPublished = (req, res) => {

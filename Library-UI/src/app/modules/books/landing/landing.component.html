@@ -1,7 +1,7 @@
-<h1><div class="heading container">Place To Find Books</div></h1>
+<h1><div class="heading container">LIBRARY</div></h1>
 
 <form class="form-container" [formGroup]="filterForm" (ngSubmit)="onSubmit()">
-  <div class="container">
+  <!-- <div class="container">
     <mat-form-field class="form-group" appearance="fill">
       <mat-label>Author</mat-label>
       <input formControlName="author" matInput />
@@ -35,8 +35,114 @@
     >
       Add Book
     </button>
+  </div> -->
+  <div
+    fxLayout="row wrap"
+    fxLayout.lt-sm="column"
+    fxLayoutGap="32px"
+    fxLayoutAlign="space-around center"
+  >
+    <ng-container>
+      <div
+        class="app-card"
+        fxFlex="0 1 calc(25% - 32px)"
+        fxFlex.lt-md="0 1 calc(50% - 32px)"
+        fxFlex.lt-sm="100%"
+      >
+        <mat-form-field class="form-group" appearance="fill">
+          <mat-label>Author</mat-label>
+          <input formControlName="author" matInput />
+        </mat-form-field>
+      </div>
+    </ng-container>
+    <ng-container>
+      <div
+        class="app-card"
+        fxFlex="0 1 calc(25% - 32px)"
+        fxFlex.lt-md="0 1 calc(50% - 32px)"
+        fxFlex.lt-sm="100%"
+      >
+        <mat-form-field class="form-group" appearance="fill">
+          <mat-label>Title</mat-label>
+          <input formControlName="title" matInput />
+        </mat-form-field>
+      </div>
+    </ng-container>
+    <ng-container>
+      <div
+        class="app-card"
+        fxFlex="0 1 calc(25% - 32px)"
+        fxFlex.lt-md="0 1 calc(50% - 32px)"
+        fxFlex.lt-sm="100%"
+      >
+        <mat-form-field class="form-group" appearance="fill">
+          <mat-label>Choose Start Date</mat-label>
+          <input
+            matInput
+            formControlName="dateFrom"
+            [matDatepicker]="picker1"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker1"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </ng-container>
+    <ng-container>
+      <div
+        class="app-card"
+        fxFlex="0 1 calc(25% - 32px)"
+        fxFlex.lt-md="0 1 calc(50% - 32px)"
+        fxFlex.lt-sm="100%"
+      >
+        <mat-form-field class="form-group" appearance="fill">
+          <mat-label>Choose End Date</mat-label>
+          <input matInput formControlName="dateTo" [matDatepicker]="picker2" />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker2"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </ng-container>
+    <!-- <ng-container>
+      <div
+        class="app-card"
+        fxFlex="0 1 calc(25% - 32px)"
+        fxFlex.lt-md="0 1 calc(50% - 32px)"
+        fxFlex.lt-sm="100%"
+      >
+        <mat-checkbox formControlName="sortYear"
+          >Sort Based on Published Year</mat-checkbox
+        >
+      </div>
+    </ng-container> -->
+  </div>
+  <div class="container">
+    <button mat-raised-button type="submit" color="primary">Submit</button>
+    <button mat-raised-button type="reset" (click)="reset()" color="accent">
+      Rest
+    </button>
+    <button
+      mat-raised-button
+      routerLink="/add-books"
+      type="button"
+      color="warn"
+    >
+      Add Book
+    </button>
   </div>
 </form>
+
+<div class="common-container">
+  <ng-container>
+    <h1>Total Books Available : {{ totalItems }}</h1>
+    <hr />
+  </ng-container>
+</div>
 
 <div
   class="books-container"

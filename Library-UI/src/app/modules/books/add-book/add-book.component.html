@@ -1,7 +1,7 @@
 <h1><div class="heading container">Add Books</div></h1>
 
 <form class="form-container" [formGroup]="addBookFrom" (ngSubmit)="onSubmit()">
-  <div class="container">
+  <!-- <div class="container">
     <mat-form-field class="form-group" appearance="fill">
       <mat-label>Author</mat-label>
       <input formControlName="author" matInput />
@@ -24,6 +24,110 @@
       <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
       <mat-datepicker #picker2></mat-datepicker>
     </mat-form-field>
+  </div> -->
+  <div
+    fxLayout="row wrap"
+    fxLayout.lt-sm="column"
+    fxLayoutGap="32px"
+    fxLayoutAlign="space-around center"
+  >
+    <ng-container>
+      <div
+        class="app-card"
+        fxFlex="0 1 calc(25% - 32px)"
+        fxFlex.lt-md="0 1 calc(50% - 32px)"
+        fxFlex.lt-sm="100%"
+      >
+        <mat-form-field class="form-group" appearance="fill">
+          <mat-label>Author</mat-label>
+          <input formControlName="author" matInput />
+        </mat-form-field>
+      </div>
+    </ng-container>
+    <ng-container>
+      <div
+        class="app-card"
+        fxFlex="0 1 calc(25% - 32px)"
+        fxFlex.lt-md="0 1 calc(50% - 32px)"
+        fxFlex.lt-sm="100%"
+      >
+        <mat-form-field class="form-group" appearance="fill">
+          <mat-label>Title</mat-label>
+          <input formControlName="title" matInput />
+        </mat-form-field>
+      </div>
+    </ng-container>
+    <ng-container>
+      <div
+        class="app-card"
+        fxFlex="0 1 calc(25% - 32px)"
+        fxFlex.lt-md="0 1 calc(50% - 32px)"
+        fxFlex.lt-sm="100%"
+      >
+        <mat-form-field class="form-group" appearance="fill">
+          <mat-label>Select Publish Year</mat-label>
+          <input matInput formControlName="year" [matDatepicker]="picker2" />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker2"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </ng-container>
+    <ng-container>
+      <div
+        class="app-card"
+        fxFlex="0 1 calc(25% - 32px)"
+        fxFlex.lt-md="0 1 calc(50% - 32px)"
+        fxFlex.lt-sm="100%"
+      >
+        <mat-form-field class="form-group" appearance="fill">
+          <mat-label>Image Url</mat-label>
+          <input formControlName="imageLink" matInput />
+        </mat-form-field>
+      </div>
+    </ng-container>
+
+    <ng-container>
+      <div
+        class="app-card"
+        fxFlex="0 1 calc(25% - 32px)"
+        fxFlex.lt-md="0 1 calc(50% - 32px)"
+        fxFlex.lt-sm="100%"
+      >
+        <mat-form-field class="form-group" appearance="fill">
+          <mat-label>No of Pages</mat-label>
+          <input formControlName="pages" matInput />
+        </mat-form-field>
+      </div>
+    </ng-container>
+    <ng-container>
+      <div
+        class="app-card"
+        fxFlex="0 1 calc(25% - 32px)"
+        fxFlex.lt-md="0 1 calc(50% - 32px)"
+        fxFlex.lt-sm="100%"
+      >
+        <mat-form-field class="form-group" appearance="fill">
+          <mat-label>Country</mat-label>
+          <input formControlName="country" matInput />
+        </mat-form-field>
+      </div>
+    </ng-container>
+    <ng-container>
+      <div
+        class="app-card"
+        fxFlex="0 1 calc(25% - 32px)"
+        fxFlex.lt-md="0 1 calc(50% - 32px)"
+        fxFlex.lt-sm="100%"
+      >
+        <mat-form-field class="form-group" appearance="fill">
+          <mat-label>Language</mat-label>
+          <input formControlName="language" matInput />
+        </mat-form-field>
+      </div>
+    </ng-container>
   </div>
   <div class="container">
     <button mat-raised-button type="submit" color="primary">Submit</button>

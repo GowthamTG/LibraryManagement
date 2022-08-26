@@ -10,4 +10,11 @@ bookRouter.post("/based-on-condition", (req, res, next) => {
     .catch((error) => next(error));
 });
 
+bookRouter.post("/add-book", (req, res, next) => {
+  bookController
+    .addBook(req.body)
+    .then((response) => res.send({ response: response, message: "SUCCESS" }))
+    .catch((error) => next(error));
+});
+
 module.exports = bookRouter;

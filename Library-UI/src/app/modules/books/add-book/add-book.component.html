@@ -1,30 +1,6 @@
 <h1><div class="heading container">Add Books</div></h1>
 
 <form class="form-container" [formGroup]="addBookFrom" (ngSubmit)="onSubmit()">
-  <!-- <div class="container">
-    <mat-form-field class="form-group" appearance="fill">
-      <mat-label>Author</mat-label>
-      <input formControlName="author" matInput />
-    </mat-form-field>
-    <mat-form-field class="form-group" appearance="fill">
-      <mat-label>Title</mat-label>
-      <input formControlName="title" matInput />
-    </mat-form-field>
-    <mat-form-field class="form-group" appearance="fill">
-      <mat-label>Select Published Year</mat-label>
-      <input formControlName="year" matInput />
-    </mat-form-field>
-    <mat-form-field class="form-group" appearance="fill">
-      <mat-label>Image Url</mat-label>
-      <input formControlName="imageUrl" matInput />
-    </mat-form-field>
-    <mat-form-field class="form-group" appearance="fill">
-      <mat-label>Choose End Date</mat-label>
-      <input matInput formControlName="year" [matDatepicker]="picker2" />
-      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-      <mat-datepicker #picker2></mat-datepicker>
-    </mat-form-field>
-  </div> -->
   <div
     fxLayout="row wrap"
     fxLayout.lt-sm="column"

@@ -1,114 +1,84 @@
-<h1><div class="heading container">LIBRARY</div></h1>
+<div>
+  <h1><div class="heading container">LIBRARY</div></h1>
 
-<form class="form-container" [formGroup]="filterForm" (ngSubmit)="onSubmit()">
-  <!-- <div class="container">
-    <mat-form-field class="form-group" appearance="fill">
-      <mat-label>Author</mat-label>
-      <input formControlName="author" matInput />
-    </mat-form-field>
-    <mat-form-field class="form-group" appearance="fill">
-      <mat-label>Title</mat-label>
-      <input formControlName="title" matInput />
-    </mat-form-field>
-    <mat-form-field class="form-group" appearance="fill">
-      <mat-label>Choose Start Date</mat-label>
-      <input matInput formControlName="dateFrom" [matDatepicker]="picker1" />
-      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-      <mat-datepicker #picker1></mat-datepicker> </mat-form-field
-    ><mat-form-field class="form-group" appearance="fill">
-      <mat-label>Choose End Date</mat-label>
-      <input matInput formControlName="dateTo" [matDatepicker]="picker2" />
-      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-      <mat-datepicker #picker2></mat-datepicker>
-    </mat-form-field>
-  </div>
-  <div class="container">
-    <button mat-raised-button type="submit" color="primary">Submit</button>
-    <button mat-raised-button type="reset" (click)="reset()" color="accent">
-      Rest
-    </button>
-    <button
-      mat-raised-button
-      routerLink="/add-books"
-      type="button"
-      color="warn"
+  <form class="form-container" [formGroup]="filterForm" (ngSubmit)="onSubmit()">
+    <div
+      fxLayout="row wrap"
+      fxLayout.lt-sm="column"
+      fxLayoutGap="32px"
+      fxLayoutAlign="space-around center"
     >
-      Add Book
-    </button>
-  </div> -->
-  <div
-    fxLayout="row wrap"
-    fxLayout.lt-sm="column"
-    fxLayoutGap="32px"
-    fxLayoutAlign="space-around center"
-  >
-    <ng-container>
-      <div
-        class="app-card"
-        fxFlex="0 1 calc(25% - 32px)"
-        fxFlex.lt-md="0 1 calc(50% - 32px)"
-        fxFlex.lt-sm="100%"
-      >
-        <mat-form-field class="form-group" appearance="fill">
-          <mat-label>Author</mat-label>
-          <input formControlName="author" matInput />
-        </mat-form-field>
-      </div>
-    </ng-container>
-    <ng-container>
-      <div
-        class="app-card"
-        fxFlex="0 1 calc(25% - 32px)"
-        fxFlex.lt-md="0 1 calc(50% - 32px)"
-        fxFlex.lt-sm="100%"
-      >
-        <mat-form-field class="form-group" appearance="fill">
-          <mat-label>Title</mat-label>
-          <input formControlName="title" matInput />
-        </mat-form-field>
-      </div>
-    </ng-container>
-    <ng-container>
-      <div
-        class="app-card"
-        fxFlex="0 1 calc(25% - 32px)"
-        fxFlex.lt-md="0 1 calc(50% - 32px)"
-        fxFlex.lt-sm="100%"
-      >
-        <mat-form-field class="form-group" appearance="fill">
-          <mat-label>Choose Start Date</mat-label>
-          <input
-            matInput
-            formControlName="dateFrom"
-            [matDatepicker]="picker1"
-          />
-          <mat-datepicker-toggle
-            matSuffix
-            [for]="picker1"
-          ></mat-datepicker-toggle>
-          <mat-datepicker #picker1></mat-datepicker>
-        </mat-form-field>
-      </div>
-    </ng-container>
-    <ng-container>
-      <div
-        class="app-card"
-        fxFlex="0 1 calc(25% - 32px)"
-        fxFlex.lt-md="0 1 calc(50% - 32px)"
-        fxFlex.lt-sm="100%"
-      >
-        <mat-form-field class="form-group" appearance="fill">
-          <mat-label>Choose End Date</mat-label>
-          <input matInput formControlName="dateTo" [matDatepicker]="picker2" />
-          <mat-datepicker-toggle
-            matSuffix
-            [for]="picker2"
-          ></mat-datepicker-toggle>
-          <mat-datepicker #picker2></mat-datepicker>
-        </mat-form-field>
-      </div>
-    </ng-container>
-    <!-- <ng-container>
+      <ng-container>
+        <div
+          class="app-card"
+          fxFlex="0 1 calc(25% - 32px)"
+          fxFlex.lt-md="0 1 calc(50% - 32px)"
+          fxFlex.lt-sm="100%"
+        >
+          <mat-form-field class="form-group" appearance="fill">
+            <mat-label>Author</mat-label>
+            <input formControlName="author" matInput />
+          </mat-form-field>
+        </div>
+      </ng-container>
+      <ng-container>
+        <div
+          class="app-card"
+          fxFlex="0 1 calc(25% - 32px)"
+          fxFlex.lt-md="0 1 calc(50% - 32px)"
+          fxFlex.lt-sm="100%"
+        >
+          <mat-form-field class="form-group" appearance="fill">
+            <mat-label>Title</mat-label>
+            <input formControlName="title" matInput />
+          </mat-form-field>
+        </div>
+      </ng-container>
+      <ng-container>
+        <div
+          class="app-card"
+          fxFlex="0 1 calc(25% - 32px)"
+          fxFlex.lt-md="0 1 calc(50% - 32px)"
+          fxFlex.lt-sm="100%"
+        >
+          <mat-form-field class="form-group" appearance="fill">
+            <mat-label>Choose Start Date</mat-label>
+            <input
+              matInput
+              formControlName="dateFrom"
+              [matDatepicker]="picker1"
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="picker1"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </ng-container>
+      <ng-container>
+        <div
+          class="app-card"
+          fxFlex="0 1 calc(25% - 32px)"
+          fxFlex.lt-md="0 1 calc(50% - 32px)"
+          fxFlex.lt-sm="100%"
+        >
+          <mat-form-field class="form-group" appearance="fill">
+            <mat-label>Choose End Date</mat-label>
+            <input
+              matInput
+              formControlName="dateTo"
+              [matDatepicker]="picker2"
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="picker2"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </ng-container>
+      <!-- <ng-container>
       <div
         class="app-card"
         fxFlex="0 1 calc(25% - 32px)"
@@ -120,62 +90,67 @@
         >
       </div>
     </ng-container> -->
-  </div>
-  <div class="container">
-    <button mat-raised-button type="submit" color="primary">Submit</button>
-    <button mat-raised-button type="reset" (click)="reset()" color="accent">
-      Rest
-    </button>
-    <button
-      mat-raised-button
-      routerLink="/add-books"
-      type="button"
-      color="warn"
-    >
-      Add Book
-    </button>
-  </div>
-</form>
-
-<div class="common-container">
-  <ng-container>
-    <h1>Total Books Available : {{ totalItems }}</h1>
-    <hr />
-  </ng-container>
+    </div>
+    <div class="container">
+      <button mat-raised-button type="submit" color="primary">Submit</button>
+      <button mat-raised-button type="reset" (click)="reset()" color="accent">
+        Rest
+      </button>
+      <button
+        mat-raised-button
+        routerLink="/add-books"
+        type="button"
+        color="warn"
+      >
+        Add Book
+      </button>
+    </div>
+  </form>
 </div>
+<div *ngIf="spinner" class="container mt-5">
+  <mat-spinner></mat-spinner>
+</div>
+<div *ngIf="!spinner">
+  <div class="common-container">
+    <ng-container>
+      <h1>Total Books Available : {{ totalItems }}</h1>
+      <hr />
+    </ng-container>
+  </div>
 
-<div
-  class="books-container"
-  infinite-scroll
-  [infiniteScrollDistance]="3"
-  [infiniteScrollThrottle]="1000"
-  (scrolled)="onScroll()"
->
-  <mat-grid-list [cols]="cols" rowHeight="550px">
-    <mat-grid-tile class="books" *ngFor="let book of books">
-      <mat-card class="example-card">
-        <mat-card-header> </mat-card-header>
-        <img
-          mat-card-image
-          src="https://rukminim1.flixcart.com/image/832/832/kirr24w0-0/book/i/r/2/mission-nda-serve-at-young-age-original-imafyhkyzxajuej7.jpeg?q=70"
-          alt="harry Potter Book"
-        />
-        <mat-card-content>
-          <mat-card-title class="title">{{
-            book.title.length < 25
-              ? book.title
-              : book.title.slice(0, 23) + "..."
-          }}</mat-card-title>
-          <mat-card-subtitle>{{ book.author }}</mat-card-subtitle>
-          <mat-card-subtitle
-            >{{ book.language }} | {{ book.year }}</mat-card-subtitle
-          >
-        </mat-card-content>
-        <!-- <mat-card-actions>
+  <div
+    class="books-container"
+    infinite-scroll
+    [infiniteScrollDistance]="3"
+    [infiniteScrollThrottle]="1000"
+    (scrolled)="onScroll()"
+  >
+    <mat-grid-list [cols]="cols" rowHeight="550px">
+      <mat-grid-tile class="books" *ngFor="let book of books">
+        <mat-card class="example-card">
+          <mat-card-header> </mat-card-header>
+          <img
+            mat-card-image
+            src="https://rukminim1.flixcart.com/image/832/832/kirr24w0-0/book/i/r/2/mission-nda-serve-at-young-age-original-imafyhkyzxajuej7.jpeg?q=70"
+            alt="harry Potter Book"
+          />
+          <mat-card-content>
+            <mat-card-title class="title">{{
+              book.title.length < 25
+                ? book.title
+                : book.title.slice(0, 23) + "..."
+            }}</mat-card-title>
+            <mat-card-subtitle>{{ book.author }}</mat-card-subtitle>
+            <mat-card-subtitle
+              >{{ book.language }} | {{ book.year }}</mat-card-subtitle
+            >
+          </mat-card-content>
+          <!-- <mat-card-actions>
           <button mat-button>LIKE</button>
           <button mat-button>SHARE</button>
         </mat-card-actions> -->
-      </mat-card>
-    </mat-grid-tile>
-  </mat-grid-list>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
 </div>

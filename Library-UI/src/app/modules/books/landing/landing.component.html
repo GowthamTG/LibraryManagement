@@ -126,12 +126,13 @@
     (scrolled)="onScroll()"
   >
     <mat-grid-list [cols]="cols" rowHeight="550px">
-      <mat-grid-tile class="books" *ngFor="let book of books">
+      <mat-grid-tile class="books" *ngFor="let book of books; let i = index">
         <mat-card class="example-card">
           <mat-card-header> </mat-card-header>
           <img
+            class="card-image"
             mat-card-image
-            src="https://rukminim1.flixcart.com/image/832/832/kirr24w0-0/book/i/r/2/mission-nda-serve-at-young-age-original-imafyhkyzxajuej7.jpeg?q=70"
+            src="{{ imageURLGenrator(i) }}"
             alt="harry Potter Book"
           />
           <mat-card-content>
